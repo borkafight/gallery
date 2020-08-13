@@ -1,8 +1,13 @@
 <template>
   <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png" />
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/"><img src="./assets/logo.png" alt=""/></router-link>
+      <router-link to="/all">All</router-link>
+      <router-link to="/animals">Animals</router-link>
+      <router-link to="/films">Films</router-link>
+      <router-link to="/food-and-drink">Food&Drink</router-link>
+      <router-link to="/nature">Nature</router-link>
     </div>
     <router-view />
   </div>
