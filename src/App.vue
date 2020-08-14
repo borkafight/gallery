@@ -1,37 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <div id="nav">
-      <router-link to="/"><img src="./assets/logo.png" alt=""/></router-link>
-      <router-link to="/all">All</router-link>
-      <router-link to="/animals">Animals</router-link>
-      <router-link to="/films">Films</router-link>
-      <router-link to="/food-and-drink">Food&Drink</router-link>
-      <router-link to="/nature">Nature</router-link>
-    </div>
-    <router-view />
+    <Header />
+    <RouterView />
   </div>
 </template>
 
+<script>
+import Header from "@/components/layout/Header";
+
+export default {
+  components: {
+    Header
+  }
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html,
+body {
+  height: 100%;
 }
 
-#nav {
-  padding: 30px;
+body {
+  background: #151515;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+img {
+  max-width: 100%;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>
