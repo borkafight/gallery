@@ -69,10 +69,6 @@ export default {
 
   &:not(.vertical) {
     .v-list-item__title {
-      max-width: 100px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       color: #fff;
     }
   }
@@ -92,6 +88,16 @@ export default {
 
   a {
     color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .v-list-item__title,
+  .v-list-item__subtitle {
+    white-space: unset;
   }
 }
 </style>

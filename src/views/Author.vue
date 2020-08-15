@@ -11,9 +11,10 @@
           {{ user.location }}
         </v-list-item-subtitle>
         <v-list-item-subtitle>
-          <a :href="user.portfolio_url">
-            Portfolio
-          </a>
+          <br />
+          <v-btn :href="user.portfolio_url" outlined color="indigo" dark
+            >Portfolio</v-btn
+          >
         </v-list-item-subtitle>
       </AuthorInfo>
 
@@ -74,10 +75,6 @@ export default {
 <style lang="scss" scoped>
 a {
   color: cyan;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .author-wrapper {
@@ -111,7 +108,7 @@ a {
 .author-achievements {
   display: flex;
   justify-content: center;
-  margin: 0 -15px -15px;
+  margin: 10px -15px -15px;
   padding: 15px;
   background: rgb(255 255 255 / 0.2);
   color: #fff;
