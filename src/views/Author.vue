@@ -83,21 +83,18 @@ a {
 
 .author-info {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
   background: rgba(#000d3a, 78%);
   width: 33.4%;
   padding: 15px;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   z-index: 1;
 }
 
-@media all and (max-width: 1023px) {
+@media all and (max-width: 1024px) {
   .author-info {
-    left: 0;
-    width: 100%;
-    transform: unset;
-    height: 33.33%;
+    width: auto;
   }
 }
 
@@ -134,7 +131,7 @@ a {
   }
 }
 
-@media all and (max-width: 1023px) {
+@media all and (max-width: 1024px) {
   .author-photos {
     flex-direction: column;
   }

@@ -30,6 +30,7 @@
       <v-icon v-else @click="setSearchQuery('')">mdi-close</v-icon>
     </template>
     <template v-else>
+      <v-spacer />
       <span class="go-back">
         <v-btn @click="goBack" text>
           <v-icon left>mdi-arrow-left</v-icon> go back
@@ -100,7 +101,7 @@ a {
   width: 60vw;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 768px) {
   .site-logo {
     display: none;
   }
