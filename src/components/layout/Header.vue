@@ -1,12 +1,16 @@
 <template>
   <v-toolbar fixed height="110px">
-    <v-toolbar-title>
+    <v-toolbar-title class="site-logo">
       <router-link to="/">
         <v-img src="../../assets/img/logo.png" width="100px" alt="Logo" />
       </router-link>
     </v-toolbar-title>
-    <v-spacer />
-    <v-tabs v-if="isHome" background-color="deep-purple accent-4" center-active>
+    <v-tabs
+      v-if="isHome"
+      background-color="deep-purple accent-4"
+      center-active
+      show-arrows
+    >
       <v-tab
         v-for="({ name, term }, i) in collectionsList"
         :key="i"
@@ -15,7 +19,6 @@
         {{ name }}
       </v-tab>
     </v-tabs>
-    <v-spacer />
     <template v-if="isHome">
       <v-text-field
         hide-details
@@ -97,8 +100,18 @@ a {
   width: 60vw;
 }
 
+@media all and (max-width: 767px) {
+  .site-logo {
+    display: none;
+  }
+}
+
 .search-input {
   max-width: 250px;
+}
+
+.v-toolbar {
+  z-index: 1;
 }
 
 .v-toolbar__title {

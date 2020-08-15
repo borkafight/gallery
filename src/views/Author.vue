@@ -92,7 +92,7 @@ a {
   z-index: 1;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1023px) {
   .author-info {
     left: 0;
     width: 100%;
@@ -134,7 +134,7 @@ a {
   }
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1023px) {
   .author-photos {
     flex-direction: column;
   }
