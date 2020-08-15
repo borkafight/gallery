@@ -1,9 +1,9 @@
 <template>
   <div class="photo">
     <v-img :src="image" />
-    <div class="photo-info">
-      <AuthorInfo :photo="photo" />
-      <Likes :photo="photo" />
+    <div v-if="photo" class="photo-info">
+      <AuthorInfo :user="photo.user" :isLinked="true" />
+      <Likes :likes="photo.likes" />
     </div>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(#d6d6e0, 40%);
+  background: rgba(#000d3a, 50%);
   width: 100%;
   padding: 20px 35px;
 }

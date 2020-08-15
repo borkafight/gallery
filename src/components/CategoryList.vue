@@ -8,8 +8,8 @@
         >
           <img :src="photo.urls.regular" class="card-img" />
           <div class="info-block">
-            <AuthorInfo :photo="photo" />
-            <Likes :photo="photo" />
+            <AuthorInfo :user="photo.user" />
+            <Likes :likes="photo.likes" />
           </div>
         </router-link>
       </li>

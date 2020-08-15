@@ -1,15 +1,15 @@
 <template>
   <div class="photo-likes">
     <v-icon dark>mdi-heart</v-icon>
-    <span class="likes-text">{{ photo.likes }}</span>
+    <span class="likes-text">{{ likes }}</span>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    photo: {
-      type: Object,
+    likes: {
+      type: Number,
       required: true
     }
   }

@@ -18,7 +18,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "photo" */ "../views/Photo")
   },
   {
-    path: "/author/:id",
+    path: "/author/:username",
     name: "author",
     props: true,
     component: () => import(/* webpackChunkName: "author" */ "../views/Author")

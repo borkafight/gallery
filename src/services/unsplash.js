@@ -6,6 +6,7 @@ const apiEndpoint = "https://api.unsplash.com/";
 const randomPhotoEndpoint = `${apiEndpoint}photos/random`;
 const listPhotosEndpoint = `${apiEndpoint}photos`;
 const searchPhotosEndpoint = `${apiEndpoint}search/photos`;
+const getUserEndpoint = `${apiEndpoint}users`;
 
 // Random Photo
 export const getRandomPhoto = async param => {
@@ -60,6 +61,22 @@ export const searchPhotos = async param => {
 export const getPhoto = async param => {
   try {
     const res = await axios.get(`${listPhotosEndpoint}/${param.id}`, {
+      params: {
+        client_id: accessKey,
+        ...param
+      }
+    });
+
+    return res.status && res.status === 200 ? res.data : null;
+  } catch (exc) {
+    return null;
+  }
+};
+
+// Get User
+export const getUser = async param => {
+  try {
+    const res = await axios.get(`${getUserEndpoint}/${param.username}`, {
       params: {
         client_id: accessKey,
         ...param

@@ -1,41 +1,81 @@
 <template>
-  <router-link
-    :to="{ name: 'author', params: { id: photo.user.id } }"
-    class="router-item"
-  >
-    <figure class="author-info">
-      <p>
-        <img
-          :src="photo.user.profile_image.small"
-          :alt="photo.user.first_name"
-        />
-      </p>
-      <figcaption class="author-name">
-        {{ photo.user.first_name }} {{ photo.user.last_name }}
-      </figcaption>
-    </figure>
-  </router-link>
+  <figure class="author-info-wrapper" :class="layout">
+    <p>
+      <router-link
+        v-if="isLinked"
+        :to="{ name: 'author', params: { username: user.username } }"
+      >
+        <img :src="user.profile_image[avatarSize]" :alt="user.first_name" />
+      </router-link>
+      <img
+        v-else
+        :src="user.profile_image[avatarSize]"
+        :alt="user.first_name"
+      />
+    </p>
+    <figcaption class="author-details">
+      <v-list-item-content>
+        <v-list-item-title class="title">
+          <router-link
+            v-if="isLinked"
+            :to="{ name: 'author', params: { username: user.username } }"
+          >
+            {{ user.name }}
+          </router-link>
+          <template v-else> {{ user.name }}</template>
+        </v-list-item-title>
+        <slot></slot>
+      </v-list-item-content>
+    </figcaption>
+  </figure>
 </template>
 
 <script>
 export default {
   props: {
-    photo: {
+    user: {
       type: Object,
       required: true
+    },
+    avatarSize: {
+      type: String,
+      default: "small"
+    },
+    layout: {
+      type: String,
+      default: "horizontal"
+    },
+    isLinked: {
+      type: Boolean,
+      default: false
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-a {
-  text-decoration: none;
-}
-
-.author-info {
+.author-info-wrapper {
   display: flex;
   align-items: center;
+
+  &.vertical {
+    flex-direction: column;
+    text-align: center;
+
+    .author-details {
+      margin-left: 0;
+    }
+  }
+
+  &:not(.vertical) {
+    .v-list-item__title {
+      max-width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #fff;
+    }
+  }
 
   img {
     display: block;
@@ -45,8 +85,13 @@ a {
   }
 }
 
-.author-name {
+.author-details {
   margin-left: 8px;
-  color: #fff;
+  color: #eee;
+  line-height: 1.5;
+
+  a {
+    color: #fff;
+  }
 }
 </style>
