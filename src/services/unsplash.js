@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const accessKey = "b2iwEU82PLNmQQz4O4UabM1rMXE3UHYs-96xHTVfF-0";
+const accessKey = "4v3WSECD0l2Bi3bWdK2BtDSyUSCVxHRhTY_QAueTy24";
 
 const apiEndpoint = "https://api.unsplash.com/";
 const randomPhotoEndpoint = `${apiEndpoint}photos/random`;
 const listPhotosEndpoint = `${apiEndpoint}photos`;
 const searchPhotosEndpoint = `${apiEndpoint}search/photos`;
 
+// Random Photo
 export const getRandomPhoto = async param => {
   try {
     const res = await axios.get(randomPhotoEndpoint, {
@@ -23,6 +24,7 @@ export const getRandomPhoto = async param => {
   }
 };
 
+// List Photos
 export const listPhotos = async param => {
   try {
     const res = await axios.get(listPhotosEndpoint, {
@@ -38,6 +40,7 @@ export const listPhotos = async param => {
   }
 };
 
+// Search Photos
 export const searchPhotos = async param => {
   try {
     const res = await axios.get(searchPhotosEndpoint, {
@@ -48,6 +51,22 @@ export const searchPhotos = async param => {
     });
 
     return res.status && res.status === 200 ? res.data.results : null;
+  } catch (exc) {
+    return null;
+  }
+};
+
+// Get Photo
+export const getPhoto = async param => {
+  try {
+    const res = await axios.get(`${listPhotosEndpoint}/${param.id}`, {
+      params: {
+        client_id: accessKey,
+        ...param
+      }
+    });
+
+    return res.status && res.status === 200 ? res.data : null;
   } catch (exc) {
     return null;
   }
