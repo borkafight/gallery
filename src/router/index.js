@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
 import Index from "../views/Index.vue";
 
 Vue.use(VueRouter);
@@ -11,33 +12,16 @@ const routes = [
     component: Index
   },
   {
-    path: "/all",
-    name: "all",
-    component: () => import(/* webpackChunkName: "all" */ "../views/Index.vue")
+    path: "/photo/:id",
+    name: "photo",
+    props: true,
+    component: () => import(/* webpackChunkName: "photo" */ "../views/Photo")
   },
   {
-    path: "/animals",
-    name: "animals",
-    component: () =>
-      import(/* webpackChunkName: "animals" */ "../views/Index.vue")
-  },
-  {
-    path: "/films",
-    name: "films",
-    component: () =>
-      import(/* webpackChunkName: "films" */ "../views/Index.vue")
-  },
-  {
-    path: "/food-drink",
-    name: "food&drink",
-    component: () =>
-      import(/* webpackChunkName: "food-drink" */ "../views/Index.vue")
-  },
-  {
-    path: "/nature",
-    name: "nature",
-    component: () =>
-      import(/* webpackChunkName: "nature" */ "../views/Index.vue")
+    path: "/author/:id",
+    name: "author",
+    props: true,
+    component: () => import(/* webpackChunkName: "author" */ "../views/Author")
   }
 ];
 
