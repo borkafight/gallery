@@ -2,8 +2,8 @@
 
 ## Technologies and stack
 - Vue.js
-- Justify
-- Lodash
+- Vuetify.js
+- Lodash.js
 
 ## Project setup
 ```
