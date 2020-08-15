@@ -1,5 +1,10 @@
 # gallery
 
+## Technologies and stack
+- Vue.js
+- Justify
+- Lodash
+
 ## Project setup
 ```
 npm install
