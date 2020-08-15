@@ -1,6 +1,6 @@
 # gallery
 
-## Technologies and stack
+## Tech stack
 - Vue.js
 - Vuetify.js
 - Lodash.js
